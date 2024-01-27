@@ -1,4 +1,4 @@
-package pl.birskidev.demo
+package pl.birskidev.demo.ui.photo_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
