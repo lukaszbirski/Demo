@@ -7,5 +7,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "photos")
 data class PhotoEntity(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") var id: Int,
-    @ColumnInfo(name = "title") var title: String,
+    @ColumnInfo(name = "link") var link: String,
+    @ColumnInfo(name = "description") var description: String,
+    @ColumnInfo(name = "published") var published: Long,
+    @ColumnInfo(name = "imageUrl") var imageUrl: String,
 )

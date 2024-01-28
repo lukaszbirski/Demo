@@ -33,13 +33,12 @@ class PhotosAdapter : ListAdapter<Photo, ViewHolder>(ContentDiffCallback()) {
     class ContentDiffCallback : DiffUtil.ItemCallback<Photo>() {
         override fun areItemsTheSame(oldItem: Photo, newItem: Photo): Boolean {
             return oldItem.link == newItem.link &&
-                    oldItem.title == newItem.title &&
                     oldItem.description == newItem.description &&
-                    oldItem.published == newItem.published
+                    oldItem.published == newItem.published &&
+                    oldItem.imageUrl == newItem.imageUrl
         }
 
         override fun areContentsTheSame(oldItem: Photo, newItem: Photo) = true
-
     }
 }
 

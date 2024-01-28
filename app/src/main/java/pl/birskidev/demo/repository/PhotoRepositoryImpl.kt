@@ -1,7 +1,7 @@
 package pl.birskidev.demo.repository
 
 import pl.birskidev.demo.network.service.PhotoService
-import pl.birskidev.demo.repository.mapper.toDomain
+import pl.birskidev.demo.domain.mapper.toDomain
 
 class PhotoRepositoryImpl(
     private val photoService: PhotoService,
@@ -9,6 +9,6 @@ class PhotoRepositoryImpl(
     override suspend fun search(
         format: String,
         tags: String,
-        nojsoncallback: Int,
+        nojsoncallback: Int
     ) = photoService.search(format = format, tags = tags, nojsoncallback = nojsoncallback).items.map { it.toDomain() }
 }

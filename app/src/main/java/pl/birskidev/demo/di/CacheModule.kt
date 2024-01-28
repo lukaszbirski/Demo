@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import pl.birskidev.demo.BaseApplication
 import pl.birskidev.demo.cache.AppDatabase
+import pl.birskidev.demo.cache.PhotoDao
 import javax.inject.Singleton
 
 @Module
@@ -20,4 +21,8 @@ object CacheModule {
             .fallbackToDestructiveMigration()
             .build()
     }
+
+    @Singleton
+    @Provides
+    fun providePhotoDao(db: AppDatabase): PhotoDao = db.photoDao()
 }
