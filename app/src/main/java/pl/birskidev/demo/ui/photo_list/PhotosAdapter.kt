@@ -11,6 +11,7 @@ import com.bumptech.glide.request.RequestOptions
 import pl.birskidev.demo.R
 import pl.birskidev.demo.databinding.ItemPhotoBinding
 import pl.birskidev.demo.domain.Photo
+import pl.birskidev.demo.util.openActionView
 
 class PhotosAdapter : ListAdapter<Photo, ViewHolder>(ContentDiffCallback()) {
 
@@ -53,7 +54,10 @@ class PhotoViewHolder(private val binding: ItemPhotoBinding) : ViewHolder(bindin
                         .placeholder(R.drawable.image_placeholder)
                         .error(R.drawable.image_placeholder_error)
                 )
-                .into(binding.itemPhotoImage)
+                .into(itemPhotoImage)
+            itemPhotoCardView.setOnClickListener {
+                openActionView(root.context, content.link)
+            }
         }
     }
 }
