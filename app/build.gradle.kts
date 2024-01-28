@@ -71,6 +71,8 @@ dependencies {
 
     implementation("com.google.dagger:hilt-android:2.44")
     implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.cardview:cardview:1.0.0")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
 
     implementation("androidx.hilt:hilt-navigation-fragment:1.1.0")
@@ -78,6 +80,9 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     annotationProcessor("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
+
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
