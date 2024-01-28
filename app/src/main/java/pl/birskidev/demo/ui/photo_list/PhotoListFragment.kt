@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import pl.birskidev.demo.R
 import pl.birskidev.demo.databinding.FragmentPhotoListBinding
 
 @AndroidEntryPoint
@@ -26,7 +25,7 @@ class PhotoListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = PhotosAdapter()
-        val gridLayoutManager = GridLayoutManager(requireContext(), resources.getInteger(R.integer.grid_column_count))
+        val gridLayoutManager = GridLayoutManager(requireContext(), viewModel.getSpanCount())
         binding.fragmentPhotoPhotosAdapter.apply {
             this.adapter = adapter
             this.layoutManager = gridLayoutManager
