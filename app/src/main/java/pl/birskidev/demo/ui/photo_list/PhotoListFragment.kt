@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import pl.birskidev.demo.databinding.FragmentPhotoListBinding
 
 @AndroidEntryPoint
@@ -30,8 +33,8 @@ class PhotoListFragment : Fragment() {
             this.adapter = adapter
             this.layoutManager = gridLayoutManager
         }
-        viewModel.viewState.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
+        viewModel.screenState.onEach {
+            adapter.submitList(it.items)
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
     }
 }
